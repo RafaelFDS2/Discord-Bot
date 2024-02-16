@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - 5432:5432
+    networks:
+      - postgres-db-network
+
+volumes:
+  postgres-db-volume:
+    driver: local
+networks:
+  postgres-db-network:
+    driver: bridge
